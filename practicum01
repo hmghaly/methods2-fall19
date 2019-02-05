@@ -1,0 +1,45 @@
+Welcome to practicum. Here is what we did:
+<b>1 Maximum likelihood estimation: part 1</b>
+Problem Compute the maximum likelihood distribution for a single (“fair”) 6-sided die (d6).
+Solution A 6-sided die is a uniformly distributed discrete random variables D ∈ [1, 6], so P(D =
+1) = P(D = 2) = P(D = 3) = P(D = 4) = P(D = 5) = P(D = 6) = 1
+6
+.
+2 Maximum likelihood estimation: part 2
+Problem Estimate the maximum likelihood distribution for adding the values of two (“fair”)
+6-sided dice (2d6). For instance, the roll {2, 3} gives the value 2 + 3 = 5.
+Hint Make a 6 × 6 table of possible rolls and their sums. Then, count the number of times each
+sum appears in the table to get the numerator.
+Solution The random variable has a discrete, but non-uniform distribution from 2 (“snake eyes”,
+the lowest possible roll) to 12 (the highest possible roll). There are 6 · 6 = 36 possible rolls:
+1 2 3 4 5 6
+1 2 3 4 5 6 7
+2 3 4 5 6 7 8
+3 4 5 6 7 8 9
+4 5 6 7 8 9 10
+5 6 7 8 9 10 11
+6 7 8 9 10 11 12
+2 occurs once in this table, so P(2) = 1
+3
+, and 7 occurs six times in the table, so P(7) = 6
+36 =
+1
+6
+.
+3 The chain rule and the Markov assumption
+Problem Let P be a language model (i.e., a probability distribution over word sequences) with a
+second-order Markov assumption. Using the chain rule, write out the probability for the sentence
+colorless green ideas sleep furiously.
+Hint This is a product of probabilities. This is just a formula, not a numerical value, because
+you haven’t been told values for P(colorless), etc.
+Solution The formula is:
+P(colorless, green, ideas,sleep, furiously) =P(colorless)·
+P(green | colorless)·
+P(ideas | colorless, green)·
+P(sleep | green, ideas)·
+P(furiously | ideas,sleep)
+4 Avoiding underflow
+Problem Use negative logarithms to compute .00002 · .3.
+Hint You can use a calculator or Python for this.
+Solution First compute the negative logarithms of the two terms: − log(.00002) ≈ 10.820 and
+− log(.3) ≈ 1.204. Their sum is 10.820+1.204 = 12.024. Then compute exp(−12.024) = .000006.
